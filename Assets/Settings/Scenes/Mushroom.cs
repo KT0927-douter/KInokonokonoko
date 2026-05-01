@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class Mushroom : MonoBehaviour
 {
-    public bool isStarter = false; // 最初のキノコかどうか
     public GameObject sporePrefab;
+    
+    // 連続収穫の間隔（小さいほど速い）
+    float harvestInterval = 0.1f;
+    float harvestTimer = 0f;
 
     void OnMouseDown()
     {
@@ -35,24 +38,38 @@ public class Mushroom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 右クリック → 採取
-        if (Input.GetMouseButtonDown(1))
+        // 右クリック長押し
+        if (Input.GetMouseButton(1))
         {
-            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Collider2D col = Physics2D.OverlapPoint(pos);
+            harvestTimer += Time.deltaTime;
 
-            if (col != null && col.gameObject == gameObject)
+            if (harvestTimer >= harvestInterval)
             {
-                Harvest();
+                harvestTimer = 0f;
+
+                Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Collider2D col = Physics2D.OverlapPoint(pos);
+
+                if (col != null)
+                {
+                    Mushroom m = col.GetComponent<Mushroom>();
+
+                    if (m != null)
+                    {
+                        m.Harvest();
+                    }
+                }
             }
         }
-
-        void Harvest()
+        else
         {
-            if (!isStarter) // ← 最初じゃないなら消す
-            {
-                Destroy(gameObject);
-            }
+            harvestTimer = 0f;
         }
+    }
+    void Harvest()
+    {
+        // 最初のキノコ消したくないならここで制御
+        // if (isStarter) return;
+        Destroy(gameObject);
     }
 }

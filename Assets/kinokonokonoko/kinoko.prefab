@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5164094954230765929}
   m_Layer: 0
   m_Name: kinoko
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,4 +151,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed94ecd0187e694cb1277ab8f98ddd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mushroom
+  isStarter: 0
   sporePrefab: {fileID: 1645177563699121674, guid: 4dd8c4379af80b249a7b11d7e6a8178e, type: 3}

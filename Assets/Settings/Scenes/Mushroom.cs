@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Mushroom : MonoBehaviour
 {
+    public bool isStarter = false; // 最初のキノコかどうか
     public GameObject sporePrefab;
-    
+
     // 連続収穫の間隔（小さいほど速い）
     float harvestInterval = 0.1f;
     float harvestTimer = 0f;
@@ -66,10 +67,9 @@ public class Mushroom : MonoBehaviour
             harvestTimer = 0f;
         }
     }
-    void Harvest()
+    public void Harvest()
     {
-        // 最初のキノコ消したくないならここで制御
-        // if (isStarter) return;
+        if (isStarter) return;
         Destroy(gameObject);
     }
 }

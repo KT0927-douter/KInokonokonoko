@@ -6,7 +6,7 @@ public class Mushroom : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("マウス押された");
+        //Debug.Log("マウス押された");
         for (int i = 0; i < 3; i++)
         {
             GameObject spore = Instantiate(sporePrefab, transform.position, Quaternion.identity);

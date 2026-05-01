@@ -479,6 +479,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5164094954230765929, guid: 501560baaa02a20428b708dc4cc22585, type: 3}
+      propertyPath: isStarter
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8679567826676073028, guid: 501560baaa02a20428b708dc4cc22585, type: 3}
       propertyPath: m_Name
       value: kinoko

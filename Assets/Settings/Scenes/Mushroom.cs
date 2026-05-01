@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Mushroom : MonoBehaviour
 {
+    public bool isStarter = false; // 最初のキノコかどうか
     public GameObject sporePrefab;
 
     void OnMouseDown()
@@ -48,8 +49,10 @@ public class Mushroom : MonoBehaviour
 
         void Harvest()
         {
-            Debug.Log("キノコ採取！");
-            Destroy(gameObject);
+            if (!isStarter) // ← 最初じゃないなら消す
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

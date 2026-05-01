@@ -1,0 +1,36 @@
+using UnityEngine;
+
+public class Mushroom : MonoBehaviour
+{
+    public GameObject sporePrefab;
+
+    void OnMouseDown()
+    {
+        Debug.Log("マウス押された");
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject spore = Instantiate(sporePrefab, transform.position, Quaternion.identity);
+
+            Rigidbody2D rb = spore.GetComponent<Rigidbody2D>();
+
+            // ★ 上だけじゃなくランダムに飛ばす
+            Vector2 dir = new Vector2(
+                Random.Range(-1f, 1f),
+                Random.Range(-0.2f, 1f) // ←ここ重要（下にも飛ぶ）
+            );
+
+            rb.AddForce(dir * 3f, ForceMode2D.Impulse);
+        }
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}

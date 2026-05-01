@@ -34,6 +34,22 @@ public class Mushroom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // 右クリック → 採取
+        if (Input.GetMouseButtonDown(1))
+        {
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Collider2D col = Physics2D.OverlapPoint(pos);
+
+            if (col != null && col.gameObject == gameObject)
+            {
+                Harvest();
+            }
+        }
+
+        void Harvest()
+        {
+            Debug.Log("キノコ採取！");
+            Destroy(gameObject);
+        }
     }
 }

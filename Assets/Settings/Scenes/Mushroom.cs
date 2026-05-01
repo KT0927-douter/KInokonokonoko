@@ -16,9 +16,12 @@ public class Mushroom : MonoBehaviour
             // ★ 上だけじゃなくランダムに飛ばす
             Vector2 dir = new Vector2(
                 Random.Range(-1f, 1f),
-                Random.Range(-0.2f, 1f) // ←ここ重要（下にも飛ぶ）
+                Random.Range(-0.8f, 0.8f) // ←ここ重要（下にも飛ぶ）
             );
-
+            if (dir.sqrMagnitude > 1.0f)
+            {
+                dir.Normalize();
+            }
             rb.AddForce(dir * 3f, ForceMode2D.Impulse);
         }
     }

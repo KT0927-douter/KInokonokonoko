@@ -36,5 +36,7 @@ public class Harvest : MonoBehaviour
             return;
         }
         Destroy(collision.gameObject);
+        //scoreManager.instance.Addscore(10);
+        GameManager.instance.AddMoney(10);
     }
 }

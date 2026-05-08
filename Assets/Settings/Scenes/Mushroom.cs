@@ -4,6 +4,9 @@ public class Mushroom : MonoBehaviour
 {
     public bool isStarter = false; // 最初のキノコかどうか
     public GameObject sporePrefab;
+    public int value = 1;
+
+    bool alreadyHarvested = false;
 
     // 連続収穫の間隔（小さいほど速い）
     float harvestInterval = 0.1f;
@@ -69,7 +72,13 @@ public class Mushroom : MonoBehaviour
     }
     public void Harvest()
     {
-        if (isStarter) return;
+        //if (isStarter) return;
+        if (alreadyHarvested) return;
+
+        alreadyHarvested = true;
+
+        GameManager.instance.AddMoney(value);
+
         Destroy(gameObject);
     }
 }

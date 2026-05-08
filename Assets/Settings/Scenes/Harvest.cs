@@ -35,8 +35,9 @@ public class Harvest : MonoBehaviour
         {
             return;
         }
+        Mushroom mushroom = collision.GetComponent<Mushroom>();
         Destroy(collision.gameObject);
         //scoreManager.instance.Addscore(10);
-        GameManager.instance.AddMoney(10);
+        GameManager.instance.AddMoney(mushroom.value);
     }
 }

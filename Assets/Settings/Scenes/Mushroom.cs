@@ -5,6 +5,8 @@ public class Mushroom : MonoBehaviour
     public bool isStarter = false; // 最初のキノコかどうか
     public GameObject sporePrefab;
     public int value = 1;
+    private int count = 0;
+    public int maxTouchCount = 3;
 
     bool alreadyHarvested = false;
 
@@ -15,6 +17,7 @@ public class Mushroom : MonoBehaviour
     void OnMouseDown()
     {
         //Debug.Log("マウス押された");
+        count ++;
         for (int i = 0; i < 3; i++)
         {
             GameObject spore = Instantiate(sporePrefab, transform.position, Quaternion.identity);
@@ -31,6 +34,10 @@ public class Mushroom : MonoBehaviour
                 dir.Normalize();
             }
             rb.AddForce(dir * 3f, ForceMode2D.Impulse);
+        }
+        if (count >= maxTouchCount)
+        {
+            Destroy(gameObject);
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

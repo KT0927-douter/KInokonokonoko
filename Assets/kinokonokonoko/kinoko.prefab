@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 6937817954938267909, guid: 2a63df1cc9543bb4fb4e8624dd59f98d, type: 3}
+  m_Sprite: {fileID: 2714453574471835212, guid: 6002f5ff5cd412746aba110dd435fed3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,7 +131,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.17, y: 3.32}
+    oldSize: {x: 0.95, y: 1.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -153,3 +153,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Mushroom
   isStarter: 0
   sporePrefab: {fileID: 1645177563699121674, guid: 4dd8c4379af80b249a7b11d7e6a8178e, type: 3}
+  value: 1

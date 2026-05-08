@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     public int money = 0;
 
     public TextMeshProUGUI moneyText;
+    public GameObject baseMushroom;
+    public GameObject mushroom;
+    public float timer=0;
 
     void Awake()
     {
@@ -33,6 +36,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+     if(mushroom==null)
+        {
+            timer += Time.deltaTime;
+            if (timer > 5f)
+            {
+             Instantiate(baseMushroom,Vector3.zero,Quaternion.identity);
+                timer = 0f;
+            }
+        }  
     }
 }

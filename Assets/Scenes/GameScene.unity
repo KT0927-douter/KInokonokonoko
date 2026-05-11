@@ -251,6 +251,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   money: 0
+  harvestCount: 0
+  rareMushroomPrefab: {fileID: 8679567826676073028, guid: 1ab75b19d8d3d7949b3f69e8eb443966, type: 3}
   moneyText: {fileID: 1882586436}
   baseMushroom: {fileID: 8679567826676073028, guid: 501560baaa02a20428b708dc4cc22585, type: 3}
   mushroom: {fileID: 1652851898}

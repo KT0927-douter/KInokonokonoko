@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public int money = 0;
+    public int harvestCount = 0;
+    public GameObject rareMushroomPrefab;
 
     public TextMeshProUGUI moneyText;
     public GameObject baseMushroom;
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
     public void AddMoney(int amount)
     {
         money += amount;
+        harvestCount++;
 
         UpdateMoneyUI();
     }
@@ -32,6 +35,13 @@ public class GameManager : MonoBehaviour
     void UpdateMoneyUI()
     {
         moneyText.text = "Money : $" + money;
+
+        if (harvestCount >= 10)
+        {
+            harvestCount = 0;
+
+            SpawnRareMushroom();
+        }
     }
     // Update is called once per frame
     void Update()
@@ -45,5 +55,17 @@ public class GameManager : MonoBehaviour
                 timer = 0f;
             }
         }  
+    }
+
+    void SpawnRareMushroom()
+    {
+        Vector2 pos = new Vector2(
+            Random.Range(-6f, 6f),
+            Random.Range(-3f, 3f)
+        );
+
+        Instantiate(rareMushroomPrefab, pos, Quaternion.identity);
+
+        Debug.Log("レアキノコ出現！");
     }
 }

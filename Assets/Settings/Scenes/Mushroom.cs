@@ -33,7 +33,7 @@ public class Mushroom : MonoBehaviour
             {
                 dir.Normalize();
             }
-            rb.AddForce(dir * 3f, ForceMode2D.Impulse);
+            rb.AddForce(dir * 5f, ForceMode2D.Impulse);
         }
         if (count >= maxTouchCount)
         {

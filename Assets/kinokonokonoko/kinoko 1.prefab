@@ -154,3 +154,4 @@ MonoBehaviour:
   isStarter: 0
   sporePrefab: {fileID: 1645177563699121674, guid: 4dd8c4379af80b249a7b11d7e6a8178e, type: 3}
   value: 10
+  maxTouchCount: 3

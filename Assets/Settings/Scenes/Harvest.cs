@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Harvest : MonoBehaviour
 {
+    public static int mushCount = 0;
     private bool flag = false;
     private new Collider2D collider;
     private void Start()
@@ -39,5 +40,6 @@ public class Harvest : MonoBehaviour
         Destroy(collision.gameObject);
         //scoreManager.instance.Addscore(10);
         GameManager.instance.AddMoney(mushroom.value);
+        mushCount++;
     }
 }

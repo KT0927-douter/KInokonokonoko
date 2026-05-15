@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5046453430426653276}
   - component: {fileID: 5802651720849630779}
-  - component: {fileID: 5725457168966119506}
   - component: {fileID: 5646155898907573391}
+  - component: {fileID: -5827462003266346815}
   m_Layer: 0
-  m_Name: Spore
+  m_Name: Spore2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,21 +93,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &5725457168966119506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645177563699121674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0dad9a7cbc2cd4b951c2557d6ec351, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Spore
-  lifetime: 1
-  mushroomPrefab: {fileID: 8679567826676073028, guid: 501560baaa02a20428b708dc4cc22585, type: 3}
-  mushroomPrefab2: {fileID: 2842110781394138622, guid: 49b89f9a9f09c7d49947b58b331cd82d, type: 3}
 --- !u!50 &5646155898907573391
 Rigidbody2D:
   serializedVersion: 5
@@ -135,3 +120,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5827462003266346815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645177563699121674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029675e24b069e9469cf077b54110bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spore2
+  lifetime: 1
+  mushrooms:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  rates:
+  - 0
+  - 0
+  - 0

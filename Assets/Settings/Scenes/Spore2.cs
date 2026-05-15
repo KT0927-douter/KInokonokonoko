@@ -15,6 +15,7 @@ public class Spore2 : MonoBehaviour
             if (num <= 0f)
             {
                 Instantiate(mushrooms[i], transform.position, Quaternion.identity);
+                break;
             }
         }
     }

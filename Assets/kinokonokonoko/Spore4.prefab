@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5646155898907573391}
   - component: {fileID: -5827462003266346815}
   m_Layer: 0
-  m_Name: Spore2
+  m_Name: Spore4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,10 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Spore2
   lifetime: 1
   mushrooms:
-  - {fileID: 2842110781394138622, guid: 49b89f9a9f09c7d49947b58b331cd82d, type: 3}
   - {fileID: 199655678720338970, guid: e6ff59b771b40cc41af3e3a6414926cf, type: 3}
   - {fileID: 8679567826676073028, guid: 501560baaa02a20428b708dc4cc22585, type: 3}
   rates:
   - 0.8
-  - 0.1
   - 1

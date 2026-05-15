@@ -40,6 +40,7 @@ public class Harvest : MonoBehaviour
         Destroy(collision.gameObject);
         //scoreManager.instance.Addscore(10);
         GameManager.instance.AddMoney(mushroom.value);
+        SoundManager.instance.PlaySE(0);
         mushCount++;
     }
 }

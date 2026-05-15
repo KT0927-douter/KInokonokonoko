@@ -30,4 +30,12 @@ public class Spore2 : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            Spawn();
+            Destroy(gameObject);
+        }
+    }
 }

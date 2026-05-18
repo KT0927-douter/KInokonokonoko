@@ -37,6 +37,12 @@ public class Harvest : MonoBehaviour
             return;
         }
         Mushroom mushroom = collision.GetComponent<Mushroom>();
+        // Mushroomが無いなら終了
+        if (mushroom == null)
+        {
+            return;
+        }
+
         GameManager.instance.AddMoney(mushroom.value);
         Destroy(collision.gameObject);
         //scoreManager.instance.Addscore(10);

@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateMoneyUI()
     {
-        moneyText.text = "Money : $" + money;
+        moneyText.text = "Pepole/kinoko: $" + money;
 
         if (harvestCount >= 10)
         {

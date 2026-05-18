@@ -60,6 +60,9 @@ public class Harvest : MonoBehaviour
                 // キノコの価値分お金を追加
                 GameManager.instance.AddMoney(mushroom.value);
 
+                // 当たり判定をOFF
+                collision.enabled = false;
+
                 // キノコオブジェクトを削除
                 Destroy(collision.gameObject);
 

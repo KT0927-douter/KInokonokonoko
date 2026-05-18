@@ -303,11 +303,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   respawnTimer: 0
   money: 0
-  timer: 180
-  timerText: {fileID: 1865764159}
   gameEnd: 0
   harvestCount: 0
   rareMushroomPrefab: {fileID: 2630909453642787351, guid: 7e9233e827045a04ba241e3d14927df6, type: 3}
+  timer: 180
+  timerText: {fileID: 1865764159}
   moneyText: {fileID: 1882586436}
   baseMushroom: {fileID: 8679567826676073028, guid: 501560baaa02a20428b708dc4cc22585, type: 3}
   mushroom: {fileID: 1652851898}
@@ -1273,6 +1273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00097be262167be42b56d7c2c1dbf94e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Harvest
+  radius: 1.5
 --- !u!50 &1574524216
 Rigidbody2D:
   serializedVersion: 5
@@ -1477,7 +1478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 324, y: 469}
+  m_AnchoredPosition: {x: 388.4, y: 472.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1865764159
@@ -1616,7 +1617,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 838, y: 475}
+  m_AnchoredPosition: {x: 791.1, y: 475}
   m_SizeDelta: {x: 500.6528, y: 42.3051}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1882586436
@@ -1639,7 +1640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Money : $0'
+  m_text: 'Pepole/kinoko:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -29,6 +29,17 @@ public class Spore2 : MonoBehaviour
             Spawn();
             Destroy(gameObject);
         }
+
+        {
+            // 画面外に行ったら削除
+            if (transform.position.x > 10f ||
+                transform.position.x < -10f ||
+                transform.position.y > 6f ||
+                transform.position.y < -6f)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
     void OnTriggerEnter2D(Collider2D collision)
     {

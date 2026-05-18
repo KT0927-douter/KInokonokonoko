@@ -5,14 +5,20 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    // キノコ系変数
+    public float respawnTimer = 0f;
     public int money = 0;
+    public bool gameEnd = false;
     public int harvestCount = 0;
     public GameObject rareMushroomPrefab;
+
+    // ゲーム時間
+    public float timer = 180f;
+    public TMP_Text timerText;
 
     public TextMeshProUGUI moneyText;
     public GameObject baseMushroom;
     public GameObject mushroom;
-    public float timer=0;
 
     void Awake()
     {
@@ -46,15 +52,29 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     if(mushroom==null)
+        // 中央のキノコが消えてたら・・・５秒後に復活させる
+        if (mushroom == null)
         {
-            timer += Time.deltaTime;
-            if (timer > 5f)
+            respawnTimer += Time.deltaTime;
+            if (respawnTimer > 5f)
             {
-             Instantiate(baseMushroom,Vector3.zero,Quaternion.identity);
-                timer = 0f;
+                mushroom = Instantiate(baseMushroom, Vector3.zero, Quaternion.identity);
+                respawnTimer = 0f;
             }
-        }  
+        }
+
+        // ゲーム時間タイマー　１８０からのカウントダウン
+        timer -= Time.deltaTime;
+
+        timerText.text = "Time : " + Mathf.Ceil(timer).ToString();
+
+        // タイマーが０になったら...（未実装）
+        if (timer <= 0)
+        {
+            timer = 0;
+            Debug.Log("ゲーム終了！");
+        }
+
     }
 
     void SpawnRareMushroom()

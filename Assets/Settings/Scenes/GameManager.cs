@@ -1,5 +1,6 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
     {
         UpdateMoneyUI();
     }
+
+
 
     public void AddMoney(int amount)
     {
@@ -72,7 +75,7 @@ public class GameManager : MonoBehaviour
         if (timer <= 0)
         {
             timer = 0;
-            Debug.Log("ゲーム終了！");
+            SceneManager.LoadScene("EndScene");
         }
 
     }

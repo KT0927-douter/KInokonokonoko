@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Mushroom
   isStarter: 0
   sporePrefab: {fileID: 1645177563699121674, guid: 4efcafe1e918b77449592769c410588d, type: 3}
-  value: 5
+  value: 10
   maxTouchCount: 3
 --- !u!82 &7669153742542841492
 AudioSource:

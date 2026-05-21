@@ -306,7 +306,7 @@ MonoBehaviour:
   gameEnd: 0
   harvestCount: 0
   rareMushroomPrefab: {fileID: 2630909453642787351, guid: 7e9233e827045a04ba241e3d14927df6, type: 3}
-  timer: 180
+  timer: 60
   timerText: {fileID: 1865764159}
   moneyText: {fileID: 1882586436}
   baseMushroom: {fileID: 8679567826676073028, guid: 501560baaa02a20428b708dc4cc22585, type: 3}

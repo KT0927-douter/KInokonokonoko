@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject rareMushroomPrefab;
 
     // ゲーム時間
-    public float timer = 180f;
+    public float timer = 60f;
     public TMP_Text timerText;
 
     public TextMeshProUGUI moneyText;
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // ゲーム時間タイマー　１８０からのカウントダウン
+        // ゲーム時間タイマー　60からのカウントダウン
         timer -= Time.deltaTime;
 
         timerText.text = "Time : " + Mathf.Ceil(timer).ToString();
@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
         if (timer <= 0)
         {
             timer = 0;
+            PlayerPrefs.SetInt("Score", money);
             SceneManager.LoadScene("EndScene");
         }
 

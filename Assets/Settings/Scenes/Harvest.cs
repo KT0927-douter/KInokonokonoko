@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Harvest : MonoBehaviour
 {
-    public static int mushCount = 0;    // 収穫したキノコの合計数
+    public int mushCount = 0;    // 収穫したキノコの合計数
     private bool flag = false;          // 収穫モード中かどうか。　true → 収穫中
     public float radius = 1.5f;
     private new Collider2D collider;
@@ -42,8 +42,9 @@ public class Harvest : MonoBehaviour
             foreach (Collider2D collision in hits)
             {
                 // タグが「kinokonoko」じゃなければ無視
-                if (!collision.CompareTag("kinokonoko"))
+                if (!collision.CompareTag("Player"))
                 {
+                    Debug.Log("タグがPlayerではない");
                     continue;
                 }
 
@@ -54,14 +55,34 @@ public class Harvest : MonoBehaviour
                 // Mushroomが無い または 親キノコなら収穫しない
                 if (mushroom == null || mushroom.isStarter)
                 {
+                    Debug.Log("Mushroomがない");
                     continue;
                 }
 
                 // キノコの価値分お金を追加
                 GameManager.instance.AddMoney(mushroom.value);
 
+                switch (mushroom.type)
+                {
+                    case Mushroom.MushroomType.kinoko:
+                        GameManager.instance.kinoko++;
+                        break;
+
+                    case Mushroom.MushroomType.Kendama:
+                        GameManager.instance.Kendama++;
+                        break;
+
+                    case Mushroom.MushroomType.Cymbal:
+                        GameManager.instance.Cymbal++;
+                        break;
+
+                    case Mushroom.MushroomType.UFO:
+                        GameManager.instance.UFO++;
+                        break;
+                }
+
                 // 当たり判定をOFF
-                collision.enabled = false;
+                //collision.enabled = false;
 
                 // キノコオブジェクトを削除
                 Destroy(collision.gameObject);
@@ -75,37 +96,35 @@ public class Harvest : MonoBehaviour
         }
 
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (flag == false || !collision.CompareTag("kinokonoko"))
+        {
+            return;
+        }
 
-    // 
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    if (flag == false || !collision.CompareTag("kinokonoko"))
-    //    {
-    //        return;
-    //    }
+        Mushroom mushroom = collision.GetComponent<Mushroom>();
 
-    //    Mushroom mushroom = collision.GetComponent<Mushroom>();
+        if (mushroom == null || mushroom.isStarter)
+        {
+            return;
+        }
 
-    //    if (mushroom == null || mushroom.isStarter)
-    //    {
-    //        return;
-    //    }
+        GameManager.instance.AddMoney(mushroom.value);
 
-    //    GameManager.instance.AddMoney(mushroom.value);
+        collision.enabled = false;
 
-    //    collision.enabled = false;
+        Destroy(collision.gameObject);
 
-    //    Destroy(collision.gameObject);
+        SoundManager.instance.PlaySE(0);
 
-    //    SoundManager.instance.PlaySE(0);
-
-    //    mushCount++;
-    //}
+        mushCount++;
+    }
 
     // バグってるっぽいので修正版↑
     //private void OnTriggerStay2D(Collider2D collision)
     //{
-    //    if (flag == false||collision.CompareTag("kinokonoko"))
+    //    if (flag == false || collision.CompareTag("kinokonoko"))
     //    {
     //        return;
     //    }

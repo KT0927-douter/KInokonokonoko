@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7d873a8ad8d5175469d90fdaf544731f
+guid: 534ceec4d5627c64097d9656ec1dd552
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3465286685962602723
-    second: 6_0
+      213: -6491836865513567386
+    second: HAIKEI_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 6_0
+      name: HAIKEI_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 179
-        height: 291
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3e801b981eb271030800000000000000
-      internalID: 3465286685962602723
+      spriteID: 66b474b14cc58e5a0800000000000000
+      internalID: -6491836865513567386
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      6_0: 3465286685962602723
+      HAIKEI_0: -6491836865513567386
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

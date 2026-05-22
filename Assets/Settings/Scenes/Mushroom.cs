@@ -5,6 +5,14 @@ public class Mushroom : MonoBehaviour
     public bool isStarter = false; // 最初のキノコかどうか
     public GameObject sporePrefab;
     public int value = 1;
+    public enum MushroomType
+    {
+        kinoko,
+        Kendama,
+        Cymbal,
+        UFO
+    }
+    public MushroomType type;
     private int count = 0;
     public int maxTouchCount = 3;
 
@@ -20,7 +28,8 @@ public class Mushroom : MonoBehaviour
         count ++;
         for (int i = 0; i < 3; i++)
         {
-            GameObject spore = Instantiate(sporePrefab, transform.position, Quaternion.identity);
+            float angle = Random.Range(0f, 360f);
+            GameObject spore = Instantiate(sporePrefab, transform.position, Quaternion.Euler(0,0,angle));
 
             Rigidbody2D rb = spore.GetComponent<Rigidbody2D>();
 

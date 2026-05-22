@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     // キノコ系変数
     public float respawnTimer = 0f;
     public int money = 0;
+    public int kinoko;
+    public int Kendama;
+    public int Cymbal;
+    public int UFO;
     public bool gameEnd = false;
     public int harvestCount = 0;
     public GameObject rareMushroomPrefab;
@@ -75,7 +79,17 @@ public class GameManager : MonoBehaviour
         if (timer <= 0)
         {
             timer = 0;
-            PlayerPrefs.SetInt("Score", money);
+            //PlayerPrefs.SetInt("Score", money);
+            //PlayerPrefs.SetInt("kinokoCount", kinoko);
+
+            //PlayerPrefs.SetInt("KendamaCount", Kendama);
+
+            //PlayerPrefs.SetInt("CymbalCount", Cymbal);
+
+            //PlayerPrefs.SetInt("UFOCount", UFO);
+
+            //PlayerPrefs.Save();
+
             SceneManager.LoadScene("EndScene");
         }
 

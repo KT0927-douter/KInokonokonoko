@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class Title : MonoBehaviour
+public class ClickScene : MonoBehaviour
 {
+    // 次に行くシーン名
+    public string nextSceneName;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,10 +13,11 @@ public class Title : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 左クリックしたらゲーム開始
+        // マウス左クリックしたら
         if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("Operation InstructionsScene");
+            SceneManager.LoadScene(nextSceneName);
         }
     }
 }
+

@@ -1,7 +1,10 @@
+using TMPro;
 using UnityEngine;
 
 public class Harvest : MonoBehaviour
 {
+
+    public GameObject MoneyPopupPrefab;
     public int mushCount = 0;    // 収穫したキノコの合計数
     private bool flag = false;          // 収穫モード中かどうか。　true → 収穫中
     public float radius = 1.5f;
@@ -41,7 +44,7 @@ public class Harvest : MonoBehaviour
             // 範囲内で見つかったColliderを1個ずつ処理
             foreach (Collider2D collision in hits)
             {
-                // タグが「kinokonoko」じゃなければ無視
+                //タグが「kinokonoko」じゃなければ無視
                 if (!collision.CompareTag("Player"))
                 {
                     Debug.Log("タグがPlayerではない");
@@ -62,6 +65,19 @@ public class Harvest : MonoBehaviour
                 // キノコの価値分お金を追加
                 GameManager.instance.AddMoney(mushroom.value);
 
+                //GameObject popup =Instantiate(MoneyPopupPrefab, collision.transform.position, Quaternion.identity);
+                // スクリーン座標に変換
+                Vector3 ScreenPos=Camera.main.WorldToScreenPoint(collision.transform.position);
+
+
+                //GameObject popup = Instantiate(MoneyPopupPrefab, ScreenPos, Quaternion.identity);
+                GameObject popup = Instantiate(MoneyPopupPrefab, collision.transform.position, Quaternion.identity);
+                TextMeshPro PopupText=popup.GetComponent<TextMeshPro>();
+                PopupText.text ="+"+mushroom.value.ToString();
+                Debug.Log("Popup生成");
+
+                //popup.GetComponent<MoneyPopup>().Setup(mushroom.value);
+
                 switch (mushroom.type)
                 {
                     case Mushroom.MushroomType.kinoko:
@@ -79,10 +95,22 @@ public class Harvest : MonoBehaviour
                     case Mushroom.MushroomType.UFO:
                         GameManager.instance.UFO++;
                         break;
+
+                    case Mushroom.MushroomType.Mokemo:
+                        GameManager.instance.Mokemo++;
+                        break;
+
+                    case Mushroom.MushroomType.Ice:
+                        GameManager.instance.Ice++;
+                        break;
+
+                    case Mushroom.MushroomType.Titi:
+                        GameManager.instance.Titi++;
+                        break;
                 }
 
                 // 当たり判定をOFF
-                //collision.enabled = false;
+                collision.enabled = false;
 
                 // キノコオブジェクトを削除
                 Destroy(collision.gameObject);
@@ -98,11 +126,14 @@ public class Harvest : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
+        // 収穫モードではない
+        // またはタグが「kinokonoko」ではない場合は処理しない
         if (flag == false || !collision.CompareTag("kinokonoko"))
         {
             return;
         }
 
+        // 当たっているオブジェクトから Mushroom スクリプトを取得
         Mushroom mushroom = collision.GetComponent<Mushroom>();
 
         if (mushroom == null || mushroom.isStarter)
@@ -110,7 +141,8 @@ public class Harvest : MonoBehaviour
             return;
         }
 
-        GameManager.instance.AddMoney(mushroom.value);
+        //GameManager.instance.AddMoney(mushroom.value);
+
 
         collision.enabled = false;
 

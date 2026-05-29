@@ -138,9 +138,11 @@ MonoBehaviour:
   mushrooms:
   - {fileID: 2630909453642787351, guid: 7e9233e827045a04ba241e3d14927df6, type: 3}
   - {fileID: 199655678720338970, guid: e6ff59b771b40cc41af3e3a6414926cf, type: 3}
+  - {fileID: 3905206398320219213, guid: f206a4e433102ce41988840e695933d9, type: 3}
   - {fileID: 8679567826676073028, guid: 501560baaa02a20428b708dc4cc22585, type: 3}
   rates:
-  - 0.8
+  - 0.7
+  - 0.1
   - 0.1
   - 1
 --- !u!58 &-8586209612812627316

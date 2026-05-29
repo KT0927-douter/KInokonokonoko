@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     public int Kendama;
     public int Cymbal;
     public int UFO;
+    public int Mokemo;
+    public int Ice;
+    public int Titi;
     public bool gameEnd = false;
     public int harvestCount = 0;
     public GameObject rareMushroomPrefab;
@@ -27,7 +30,15 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        // 既に存在してたら消す
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         instance = this;
+        //DontDestroyOnLoad(gameObject);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -79,16 +90,6 @@ public class GameManager : MonoBehaviour
         if (timer <= 0)
         {
             timer = 0;
-            //PlayerPrefs.SetInt("Score", money);
-            //PlayerPrefs.SetInt("kinokoCount", kinoko);
-
-            //PlayerPrefs.SetInt("KendamaCount", Kendama);
-
-            //PlayerPrefs.SetInt("CymbalCount", Cymbal);
-
-            //PlayerPrefs.SetInt("UFOCount", UFO);
-
-            //PlayerPrefs.Save();
 
             SceneManager.LoadScene("EndScene");
         }

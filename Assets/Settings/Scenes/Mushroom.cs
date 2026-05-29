@@ -10,7 +10,10 @@ public class Mushroom : MonoBehaviour
         kinoko,
         Kendama,
         Cymbal,
-        UFO
+        UFO,
+        Mokemo,
+        Ice,
+        Titi
     }
     public MushroomType type;
     private int count = 0;
@@ -93,7 +96,7 @@ public class Mushroom : MonoBehaviour
 
         alreadyHarvested = true;
 
-        GameManager.instance.AddMoney(value);
+        //GameManager.instance.AddMoney(value);
 
         Destroy(gameObject);
     }
